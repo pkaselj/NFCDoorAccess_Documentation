@@ -1,0 +1,27 @@
+FORMATI NAREDBI:
+* [opcionalno]
+
+{
+	ADD,
+	card/PIN,
+	card/PIN,
+	[plain]
+},
+
+{
+	REMOVE,
+	card/PIN,
+	card/PIN
+},
+
+{
+	AUTHORIZE,
+	card/PIN
+},
+
+{
+	SET_CLEARANCE,
+	card/PIN,
+	plain,
+	card/PIN
+}

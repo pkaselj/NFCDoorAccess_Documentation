@@ -1,0 +1,123 @@
+SELECT ALL EMPLOYEES WITH THEIR ASSETS:
+
+SELECT *
+FROM Employees
+LEFT JOIN KeypadPasswordTable
+ON KeypadPasswordTable.PassOwnerId == Employees.EmployeeId
+LEFT JOIN RFIDCardTable
+ON RFIDCardTable.CardOwnerId == Employees.EmployeeId
+LEFT JOIN WebPassTable
+ON WebPassTable.UserId == Employees.EmployeeId;
+
+============================================================================
+
+SELECT ALL EMPLOYEE CLEARANCES AND NAMES MATCHING PASSWORD:
+
+SELECT Employees.Clearance, Employees.Name
+FROM Employees
+INNER JOIN KeypadPasswordTable
+ON KeypadPasswordTable.PassOwnerId == Employees.EmployeeId
+WHERE KeypadPasswordTable.PasswordHash == "?";
+
+
+============================================================================
+
+SELECT ALL EMPLOYEE CLEARANCES AND NAMES MATCHING CARD:
+
+SELECT Employees.Clearance, Employees.Name
+FROM Employees
+INNER JOIN RFIDCardTable
+ON RFIDCardTable.CardOwnerId == Employees.EmployeeId
+WHERE RFIDCardTable.CardUUID == "?";
+
+
+============================================================================
+
+SELECT ALL EMPLOYEE CLEARANCES AND NAMES MATCHING WebPass:
+
+SELECT Employees.Clearance, Employees.Name
+FROM Employees
+INNER JOIN WebPassTable
+ON WebPassTable.UserId == Employees.EmployeeId
+WHERE WebPassTable.WebPassHash == "?";
+
+
+============================================================================
+
+RENAME:
+
+UPDATE Employees
+SET Name = "?"
+WHERE Name == "?";
+
+
+============================================================================
+
+ADD NAME ONLY: // unused?
+
+INSERT INTO Employees (Name, Clearance)
+VALUES (?, ?);
+
+============================================================================
+
+ADD PASSWORD:
+
+============================================================================
+
+============================================================================
+
+
+============================================================================
+
+DELETE NAME ONLY:
+
+DELETE FROM Employees WHERE Name == ?;
+
+
+============================================================================
+
+DELETE PASSWORD BY NAME OR ID:
+
+DELETE FROM KeypadPasswordTable
+WHERE PassOwnerId == ?
+OR PassOwnerId IN 
+	(
+		SELECT EmployeeId
+		FROM Employees
+		WHERE Name == ?
+	);
+
+============================================================================
+
+DELETE CARD BY NAME OR ID:
+
+DELETE FROM RFIDCardTable
+WHERE CardOwnerId == ?
+OR CardOwnerId IN 
+	(
+		SELECT EmployeeId
+		FROM Employees
+		WHERE Name == ?
+	);
+
+
+
+============================================================================
+
+DELETE WebAPIPass BY NAME OR ID:
+
+DELETE FROM WebPassTable
+WHERE UserId == ?
+OR UserId IN 
+	(
+		SELECT EmployeeId
+		FROM Employees
+		WHERE Name == ?
+	);
+
+
+============================================================================
+
+
+
+
