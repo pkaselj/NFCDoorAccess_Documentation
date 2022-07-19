@@ -9,7 +9,7 @@ Documentation for NFCDoorAccess Project
 
 ### Internal Links
 
-- [The bachelor's thesis](Zavrsni\ rad\ -\ Petar\ Kaselj\ -\ NFCDoorAccess.pdf)
+- [The bachelor's thesis](Zavrsni%20rad%20-%20Petar%20Kaselj%20-%20NFCDoorAccess.pdf)
 
 ---
 
