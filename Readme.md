@@ -15,9 +15,6 @@ Documentation for NFCDoorAccess Project
 
 ### External Links
 - [NFCDoorAccess Repository](https://github.com/pkaselj/NFCDoorAccess_CMake)
+- [Doxygen Documentation](https://nfcdooraccess-docs.netlify.app)
 
 
----
-
-### Additional
-For Doxygen documentation contact me @ Petar.Kaselj.00@gmail.com
